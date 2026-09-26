@@ -63,7 +63,7 @@ The following patterns were identified from the exported log data:
 | File | Location |
 |------|----------|
 | Extract-FailedLogins.ps1 | `/scripts/` |
-| failed_logins_sample.csv | `/docs/` |
+| failed_logins.csv | `C:\temp\` — local lab output, not stored in this repository |
 | Screenshots | `/screenshots/` |
 
 ---
