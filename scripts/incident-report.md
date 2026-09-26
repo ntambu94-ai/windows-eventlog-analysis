@@ -12,7 +12,7 @@ Analyze Windows Security Event Logs to detect brute-force login attempts.
 ---
 
 ## Summary
-Detected failed login attempts against local account "TestUser" over a short time window, consistent with brute-force or password spraying behavior.
+Detected 47 failed login attempts against the local account "TestUser" within 90 seconds, consistent with brute-force activity.
 
 | Metric | Value |
 |--------|-------|
