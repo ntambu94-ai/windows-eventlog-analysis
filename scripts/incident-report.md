@@ -26,16 +26,16 @@ Detected failed login attempts against local account "TestUser" over a short tim
 ## Evidence
 
 ### 1. Test User Created
-![Create Test User](screenshots/01-create-testuser.png)
+![Create Test User](../screenshots/01-create-testuser.png.png)
 
 ### 2. Failed Login Attempts
-![Failed Login Attempts](screenshots/02-failed-login-attempts.png)
+![Failed Login Attempts](../screenshots/02-failed-login-attempts.png.png)
 
 ### 3. Event Viewer – Event ID 4625
-![Event ID 4625](screenshots/04-eventid-4625.png)
+![Event ID 4625](../screenshots/04-eventid-4625.png.png)
 
 ### 4. Export Success
-![CSV Export](screenshots/09-export-success.png)
+![CSV Export](../screenshots/09-export-success.png.png)
 
 ---
 
