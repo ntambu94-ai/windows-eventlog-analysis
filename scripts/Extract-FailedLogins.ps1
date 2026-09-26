@@ -1,21 +1,19 @@
-# Extract failed Windows login events (Event ID 4625)
-# Run PowerShell as Administrator.
-
-$OutputDirectory = "C:\Temp"
-$OutputFile = Join-Path $OutputDirectory "FailedLogins.csv"
+$OutputDirectory = "C:\temp"
+$OutputFile = Join-Path $OutputDirectory "failed_logins.csv"
 
 if (-not (Test-Path $OutputDirectory)) {
     New-Item -Path $OutputDirectory -ItemType Directory -Force | Out-Null
 }
 
 $FailedLogins = Get-WinEvent -FilterHashtable @{
-    LogName = "Security"
-    Id      = 4625
+    LogName   = "Security"
+    Id        = 4625
+    StartTime = (Get-Date).AddHours(-24)
 } -ErrorAction Stop
 
 $FailedLogins |
-    Select-Object TimeCreated, Id, MachineName, ProviderName, Message |
-    Export-Csv -Path $OutputFile -NoTypeInformation -Encoding UTF8
+    Select-Object TimeCreated, Id, Message |
+    Export-Csv -Path $OutputFile -NoTypeInformation
 
 Write-Host "Export complete." -ForegroundColor Green
 Write-Host "Events exported: $($FailedLogins.Count)"
