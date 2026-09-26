@@ -10,26 +10,24 @@ Security analysis lab detecting brute-force login attempts through Windows Event
 - Analyze patterns and create incident report
 
 ## Repository Structure
-/
+```text
+windows-eventlog-analysis/
 ├── README.md
-├── incident-report.md
-├── scripts/
-│ └── Extract-FailedLogins.ps1
-├── docs/
-│ └── failed_logins_sample.csv
-└── screenshots/
-├── 01-create-testuser.png
-├── 02-failed-login-attempts.png
-├── 03-event-viewer.png
-├── 04-eventid-4625.png
-├── 05-export-error.png
-├── 06-create-temp-folder.png
-├── 07-csv-not-found.png
-├── 08-test-path-false.png
-├── 09-export-success.png
-└── 10-export-command.png
-
-text
+├── screenshots/
+│   ├── 01-create-testuser.png.png
+│   ├── 02-failed-login-attempts.png.png
+│   ├── 03-event-viewer.png.png
+│   ├── 04-eventid-4625.png.png
+│   ├── 05-export-error.png.png
+│   ├── 06-create-temp-folder.png.png
+│   ├── 07-csv-not-found.png.png
+│   ├── 08-test-path-false.png.png
+│   ├── 09-export-success.png.png
+│   └── 10-export-command.png.png
+└── scripts/
+    ├── Extract-FailedLogins.ps1
+    └── incident-report.md
+```
 
 ## Tools Used
 - Windows Event Viewer
