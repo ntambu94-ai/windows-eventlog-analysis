@@ -40,10 +40,44 @@ windows-eventlog-analysis/
 - Successfully exported and documented findings
 
 ## How to Run This Lab
-1. Run `New-LocalUser` to create test account
-2. Simulate failed logins with `runas /user:TestUser cmd.exe`
-3. Export logs using PowerShell script in `/scripts/`
-4. Review incident report for analysis
+> Use these steps only in an authorized Windows test environment. Run PowerShell as Administrator.
+
+1. Create the temporary lab account:
+
+   ```powershell
+   $Password = Read-Host "Enter a temporary password for TestUser" -AsSecureString
+   New-LocalUser -Name "TestUser" -Password $Password -FullName "Test User" -Description "Test account for log analysis"
+   ```
+
+2. Open Command Prompt and generate failed-login events:
+
+   ```cmd
+   runas /user:TestUser cmd.exe
+   ```
+
+   Enter an incorrect password. Repeat the command several times to generate multiple Event ID 4625 records.
+
+3. Open Event Viewer and verify the events under:
+
+   ```text
+   Windows Logs → Security → Event ID 4625
+   ```
+
+4. From the repository’s root folder, run the extraction script in Administrator PowerShell:
+
+   ```powershell
+   powershell.exe -ExecutionPolicy Bypass -File ".\scripts\Extract-FailedLogins.ps1"
+   ```
+
+5. Confirm that the output file was created:
+
+   ```powershell
+   Test-Path "C:\temp\failed_logins.csv"
+   ```
+
+   A result of `True` confirms that the CSV exists.
+
+6. Review the [incident report](scripts/incident-report.md) for the findings, evidence, and recommendations.
 
 ## Status
 ✅ Completed – March 2026
